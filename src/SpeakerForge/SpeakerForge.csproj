@@ -6,10 +6,23 @@
     <Nullable>enable</Nullable>
     <RootNamespace>SpeakerForge</RootNamespace>
     <AssemblyName>SpeakerForge</AssemblyName>
-    <Description>SpeakerForge network speaker engine - UPnP/DLNA, Google Cast, AirPlay renderer discovery and streaming</Description>
+    <Description>SpeakerForge - standalone .NET engine for discovering and streaming audio to network speakers (UPnP/DLNA, Google Cast, AirPlay). Zero dependencies, no UI required.</Description>
+    <PackageId>SpeakerForge</PackageId>
     <Version>1.0.0</Version>
+    <Authors>Stephen White</Authors>
+    <Company>AudioForge</Company>
+    <PackageTags>audio;network-speakers;upnp;dlna;chromecast;airplay;sonos;multiroom;pcm;dotnet</PackageTags>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <PackageProjectUrl>https://github.com/stephenwhite688/Speaker-Forge</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/stephenwhite688/Speaker-Forge</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
     <NoWarn>$(NoWarn);1591</NoWarn>
   </PropertyGroup>
+  <ItemGroup>
+    <None Include="..\..\README.md" Pack="true" PackagePath="\" />
+    <None Include="..\..\LICENSE" Pack="true" PackagePath="\" />
+  </ItemGroup>
 
 </Project>
