@@ -1,0 +1,82 @@
+name: Device test report
+description: Tell us how SpeakerForge worked (or didn't) with your hardware
+labels: ["device-test", "feedback"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for testing! The most useful reports tell us the **device model**,
+        **which protocol it should use**, and **exactly what happened**.
+        If it didn't work, don't worry — that's exactly the feedback we need.
+
+  - type: input
+    id: device
+    attributes:
+      label: Device make and model
+      description: e.g. "Google Nest Audio", "Apple TV 4K", "Sonos One", "Samsung HW-S60T"
+      placeholder: e.g. Sonos Symfonisk Gen 2
+    validations:
+      required: true
+
+  - type: dropdown
+    id: protocol
+    attributes:
+      label: Protocol you expected it to use
+      options:
+        - UPnP/DLNA
+        - Google Cast
+        - AirPlay
+        - Not sure
+    validations:
+      required: true
+
+  - type: dropdown
+    id: discovery
+    attributes:
+      label: Did the device show up in discovery?
+      options:
+        - Yes, it appeared in the device list
+        - No, it was not discovered at all
+        - Didn't get that far
+    validations:
+      required: true
+
+  - type: dropdown
+    id: result
+    attributes:
+      label: Result
+      options:
+        - Worked perfectly
+        - Discovered but playback failed
+        - Connected but no audio / silence
+        - Audio but choppy or out of sync
+        - Crashed or threw an exception
+        - Something else
+    validations:
+      required: true
+
+  - type: textarea
+    id: steps
+    attributes:
+      label: What you did (steps to reproduce)
+      description: e.g. "dotnet run sample → discover → tone 'Kitchen' 10"
+      placeholder: |
+        1. Cloned repo / installed package
+        2. Ran discover — device appeared/didn't
+        3. Tried tone/play command...
+    validations:
+      required: true
+
+  - type: textarea
+    id: logs
+    attributes:
+      label: Output, errors, or logs
+      description: Paste console output, exceptions, or Wireshark/packet-capture notes if you have them.
+      render: shell
+
+  - type: input
+    id: environment
+    attributes:
+      label: Environment
+      description: e.g. "Windows 11, .NET 10, wired Ethernet" or "Ubuntu 24.04, .NET 8"
+      placeholder: OS, .NET version, wired/Wi-Fi

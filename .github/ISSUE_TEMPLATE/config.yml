@@ -1,0 +1,8 @@
+blank_issues_enabled: true
+contact_links:
+  - name: Device test report
+    url: https://github.com/stephenwhite688/Speaker-Forge/issues/new?template=device_test.yml
+    about: Tell us how SpeakerForge worked with your speakers
+  - name: Bug report
+    url: https://github.com/stephenwhite688/Speaker-Forge/issues/new?template=bug_report.yml
+    about: Report a bug in the library itself

@@ -1,0 +1,41 @@
+name: Bug report
+description: Something in the library itself is broken
+labels: ["bug"]
+body:
+  - type: textarea
+    id: description
+    attributes:
+      label: What happened
+      description: What you expected vs what actually happened
+    validations:
+      required: true
+
+  - type: textarea
+    id: repro
+    attributes:
+      label: Steps to reproduce
+      placeholder: |
+        1. ...
+        2. ...
+        3. ...
+    validations:
+      required: true
+
+  - type: textarea
+    id: code
+    attributes:
+      label: Code snippet
+      description: Minimal code that reproduces the issue
+      render: csharp
+
+  - type: input
+    id: version
+    attributes:
+      label: SpeakerForge version / commit
+      placeholder: e.g. 1.0.0, or git commit hash
+
+  - type: input
+    id: environment
+    attributes:
+      label: Environment
+      placeholder: OS, .NET version

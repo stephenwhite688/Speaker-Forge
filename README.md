@@ -23,6 +23,18 @@ A standalone .NET audio engine for discovering and streaming to network speakers
 | Google Cast v2 | Implemented, hardware-unverified | Hand-written mDNS discovery, TLS, protobuf framing, virtual connection, heartbeat, media control. No Cast hardware was available for end-to-end testing |
 | AirPlay 1 / RAOP | Implemented, hardware-unverified | mDNS discovery, RTSP ANNOUNCE/SETUP/RECORD, RTP/L16 streaming. AirPlay 2 pairing/encryption is **not** implemented |
 
+### Tested devices
+
+Help us grow this list — test your speakers and [open a device report](https://github.com/stephenwhite688/Speaker-Forge/issues/new?template=device_test.yml).
+
+| Device | Protocol | Status |
+|---|---|---|
+| Sonos / Symfonisk | UPnP/DLNA | ✅ Verified — discovery, streaming, volume |
+| Samsung HW-S60T soundbar | — | ❌ Confirmed unsupported — no open streaming protocol (Bluetooth/Spotify Connect/HDMI-ARC only) |
+| Chromecast / Nest | Cast | ⚠️ Implemented, awaiting hardware test |
+| AirPlay devices | AirPlay 1 | ⚠️ Implemented, awaiting hardware test |
+| *your device here* | | |
+
 ### Devices that cannot be supported
 
 Some speakers expose Wi-Fi only for proprietary ecosystems and have no open streaming interface. Samsung soundbars such as the HW-S60T, for example, accept audio only via Bluetooth, HDMI-ARC, Spotify Connect, or Samsung's proprietary SoundShare (TV-to-soundbar). These devices cannot receive arbitrary PCM streams over the network, and no implementation of this library can change that — it is a hardware/protocol limitation, not missing code.
