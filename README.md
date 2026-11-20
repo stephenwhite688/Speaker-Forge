@@ -77,6 +77,20 @@ await service.PlayGroupAsync(pair.Id);
 
 `SpeakerAssignment` values: `Stereo`, `Left`, `Right`, `Group`. The assignment is encoded into each client's stream URL so left/right speakers receive the correct channel mix.
 
+## Samples
+
+A ready-to-run console sample lives in [`samples/SpeakerForge.Samples.Player`](samples/SpeakerForge.Samples.Player):
+
+```bash
+dotnet run --project samples/SpeakerForge.Samples.Player -- discover
+# lists every UPnP/DLNA, Cast, and AirPlay speaker on your network
+
+dotnet run --project samples/SpeakerForge.Samples.Player -- tone "Kitchen" 15
+# streams a 440Hz test tone to the speaker whose name contains "Kitchen"
+```
+
+It demonstrates the whole pipeline in ~100 lines: service startup, discovery, `PlayToDeviceAsync`, and pushing PCM through `Server.Broadcast`.
+
 ## API overview
 
 ### `NetworkSpeakerService` — main entry point
