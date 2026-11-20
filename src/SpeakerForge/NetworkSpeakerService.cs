@@ -95,7 +95,7 @@ public sealed class NetworkSpeakerService : IDisposable
         var describeTasks = hostIps
             .Where(ip => !ssdpHosts.Contains(ip))
             .Select(ip => DescribeHostAsync(ip, ct));
-        foreach (var dev in (await Task.WhenAll(describeTasks)).Where(d => d is not null))
+        foreach (var dev in (await Task.WhenAll(describeTasks)).OfType<UpnpDevice>())
             if (knownUdns.Add(dev.Id))
                 found.Add(dev);
 
@@ -311,6 +311,7 @@ public sealed class NetworkSpeakerService : IDisposable
             .OrderBy(m => m.DelayMs)
             .Select(m => (member: m, device: GetDevice(m.DeviceUdn)))
             .Where(x => x.device is not null)
+            .Select(x => (x.member, device: x.device!))
             .ToList();
 
         int baseDelay = ordered.Count > 0 ? ordered.Min(x => x.member.DelayMs) : 0;
